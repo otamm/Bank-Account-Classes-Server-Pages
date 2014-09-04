@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Accounts Page</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <h1>National Bank of Switzerland</h1>
+    <h2>"If no one knows how to trace the origin, then it is not illegal."</h2>
+
+    <table>
+
+    <tr>
+      <td>Account</td>
+      <td>Initial Balance</td>
+      <td>Final Balance</td>
+      <td>Time Period</td>
+    </tr>
+    <% $account_data.each do |account| %>
+    <% @account_name = account.account.gsub(' ','+') %>
+    <tr>
+      <td><a href='/accounts/<%= "#{@account_name}"   %>'><%= "#{account.account}" %></a></td>
+      <td><%= "$ #{account.init_amount}" %></td>
+      <td><%= "$ #{account.total_money}" %></td>
+      <td><%= "#{account.transactions[0][:date]} - #{account.transactions[account.transactions.size-1][:date]} " %></td>
+    </tr><%end%>
+
+
+
+
+
+    </table>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Accounts Page</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <h1>National Bank of Switzerland</h1>
+    <h2>"If no one knows how to trace the origin, then it is not illegal."</h2>
+
+    <table>
+
+    <tr><td>Details for Account ' <%= $specific_account[0].account %> ' :| Initial Balance: <%= "#{$specific_account[0].init_amount} " %></td>
+      <td>Final Balance: <%= "#{$specific_account[0].total_money} " %></td>
+      <td>Transactions Details: </td>
+      <% $specific_account[0].transactions.each do |account| %>
+      <td><%= "#{account[:summary]}" %></td>
+    </tr><%end%>
+    </table>
+    <a href = "/accounts"> Back </a>
+    </body>
+    </html>
